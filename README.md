@@ -6,8 +6,13 @@ libp2p bootstrap project.
 
 ## TODOs
 - Prepare Step
-    - [ ] Project Structure
-    - [ ] Dockerfile
-    - [ ] goreleaser
-    - [ ] Makefile tasks
-    - [ ] DockerHub Repository
+    - [x] Project Structure
+    - [x] Dockerfile
+    - [x] goreleaser
+    - [x] Makefile tasks
+    - [x] DockerHub Repository
+- Peer Step
+    - [ ] libp2p Host implementation
+    - [ ] libp2p Router implementation
+- HTTP Step
+    - [ ] Rest endpoint implementation
