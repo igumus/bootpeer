@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  bootpeer
+  labels:
+    app:  bootpeer
+spec:
+  selector:
+    matchLabels:
+      app: bootpeer
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app:  bootpeer
+    spec:
+      containers:
+      - name:  bootpeer
+        image:  igumus/bootpeer:1.0.2
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 100m
+            memory: 100Mi
+        ports:
+        - name: bootpeer-http
+          containerPort: 2001
+        - name: bootpeer-peer
+          containerPort: 3001
+      restartPolicy: Always
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: bootpeer-svc
+spec:
+  selector:
+    app: bootpeer
+  type: ClusterIP
+  ports:
+  - name: bootpeer
+    protocol: TCP
+    port: 8080 
+    targetPort: 2001
