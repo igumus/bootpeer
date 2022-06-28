@@ -17,5 +17,5 @@ libp2p bootstrap project.
 - HTTP Step
     - [x] Rest endpoint implementation
 - Utils
-  - [ ] Add github Flow
+  - [x] Add github Flow
   - [ ] Add kubernetes object to deploy
