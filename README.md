@@ -12,7 +12,7 @@ libp2p bootstrap project.
     - [x] Makefile tasks
     - [x] DockerHub Repository
 - Peer Step
-    - [ ] libp2p Host implementation
-    - [ ] libp2p Router implementation
+    - [x] libp2p Host implementation
+    - [x] libp2p Router implementation
 - HTTP Step
-    - [ ] Rest endpoint implementation
+    - [x] Rest endpoint implementation
