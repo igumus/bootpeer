@@ -2,6 +2,7 @@ package peer
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"time"
 
@@ -11,10 +12,14 @@ import (
 	dht "github.com/libp2p/go-libp2p-kad-dht"
 	routedhost "github.com/libp2p/go-libp2p/p2p/host/routed"
 	"github.com/libp2p/go-libp2p/p2p/net/connmgr"
+	ma "github.com/multiformats/go-multiaddr"
 )
 
 func printListenAddr(ctx context.Context, host host.Host) {
-
+	hostAddr, _ := ma.NewMultiaddr(fmt.Sprintf("/ipfs/%s", host.ID().Pretty()))
+	for _, addr := range host.Addrs() {
+		log.Printf("info: peer listening on : %s\n", addr.Encapsulate(hostAddr).String())
+	}
 }
 
 func generateKeyPair(ctx context.Context) (crypto.PrivKey, error) {
