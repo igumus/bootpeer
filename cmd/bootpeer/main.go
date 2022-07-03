@@ -19,12 +19,11 @@ func main() {
 	log.Println("info: starting bootpeer")
 
 	flagRestPort := flag.Int("rest-port", 2001, "Rest Service Port")
-	flagPeerHost := flag.String("peer-host", "0.0.0.0", "Peer Host")
 	flagPeerPort := flag.Int("peer-port", 3001, "Peer Port")
 	flag.Parse()
 
 	rootCtx := context.Background()
-	peer, err := ipeer.New(rootCtx, ipeer.WithHost(*flagPeerHost), ipeer.WithPort(*flagPeerPort))
+	peer, err := ipeer.New(rootCtx, ipeer.WithPort(*flagPeerPort))
 	if err != nil {
 		log.Fatalf("err: creating peer faile: %s\n", err.Error())
 	}
