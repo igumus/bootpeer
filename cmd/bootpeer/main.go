@@ -18,8 +18,8 @@ const hostAddr = "0.0.0.0"
 func main() {
 	log.Println("info: starting bootpeer")
 
-	flagRestPort := flag.Int("rest-port", 2001, "Rest Service Port")
-	flagPeerPort := flag.Int("peer-port", 3001, "Peer Port")
+	flagRestPort := flag.Int("port-rest", 2001, "Rest Service Port")
+	flagPeerPort := flag.Int("port-peer", 3001, "Peer Port")
 	flag.Parse()
 
 	rootCtx := context.Background()
